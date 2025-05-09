@@ -7,7 +7,7 @@ import { Tag, DollarSign, ShoppingCart } from 'lucide-react';
 const IMAGE_BASE_URL = 'https://d1wh1xji6f82aw.cloudfront.net/';
 
 const Dashboard = () => {
-    const { token } = useSelector((state) => state.auth);
+    const { token} = useSelector((state) => state.auth);
 
     const {
         data,
@@ -56,7 +56,7 @@ const Dashboard = () => {
         <div className="p-6 ">
             
 
-            <h3 className="text-2xl font-semibold mb-4 text-center pb-8 underline text-indigo-700">Materials</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-center pb-8 text-indigo-700 underline">Materials</h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {data?.pages.map((page) =>
@@ -65,7 +65,7 @@ const Dashboard = () => {
                         // Inside your map:
                         <div
                             key={item.Id}
-                            className="relative bg-gradient-to-br from-blue-100 via-white to-blue-300 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 p-5 flex flex-col border border-blue-300 group"
+                            className="relative bg-gradient-to-br from-blue-100 via-white to-blue-200 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 p-5 flex flex-col border border-blue-300 group"
                         >
                             {/* Floating Image Container */}
                             <div className="relative w-full h-52 rounded-2xl overflow-hidden mb-5 transform transition-transform duration-300 group-hover:scale-[1.02] shadow-md">
@@ -99,7 +99,7 @@ const Dashboard = () => {
                                 <p className="text-blue-700 font-bold text-lg tracking-wide">
                                     ${item.SalesPriceInUsd.toFixed(2)}
                                 </p>
-                                <button className="bg-gradient-to-r from-blue-500 to-indigo-700 text-white px-4 py-1.5 rounded-xl hover:from-blue-600 hover:to-indigo-800 shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-2">
+                                <button className="bg-gradient-to-r from-blue-500 to-indigo-700 text-white px-4 py-1.5 rounded-xl hover:from-blue-800 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-2">
                                     <ShoppingCart className="w-4 h-4" />
                                     <span className="font-medium">Add</span>
                                 </button>

@@ -1,4 +1,4 @@
-import { Menu, X, LogIn, UserPlus, LayoutDashboard, Gift } from 'lucide-react';
+import { Menu, X, LogIn, UserPlus, LayoutDashboard, Gift, LogOut } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hookes/reduxHooks';
@@ -12,6 +12,8 @@ const Navbar = () => {
     const user = useAppSelector((state) => state.auth.user)
 
     // LogOut
+
+    const IMAGE_BASE_URL = 'https://d1wh1xji6f82aw.cloudfront.net/';
 
     const userDispatch = useAppDispatch();
 
@@ -43,8 +45,25 @@ const Navbar = () => {
                         {
                             user ?
                                 <>
-                                    <button onClick={handleLogOut}> logOut
-                                    </button></> :
+                                    <div className=" flex items-center gap-4">
+                                        <div className="relative group">
+                                            <img
+                                                src={`${IMAGE_BASE_URL}${user?.Avatar}`}
+                                                alt="avatar"
+                                                className="w-8 h-8 rounded-full cursor-pointer"
+                                            />
+                                            <div className="absolute top-8 left-1/2 -translate-x-1/2 w-44 bg-white border border-gray-200 rounded-xl shadow-lg p-3 opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-200 z-50">
+                                                <h2 className="text-base font-semibold text-gray-900">{user?.FullName}</h2>
+                                                <p className="text-sm text-gray-500">{user?.Email}</p>
+                                            </div>
+                                        </div>
+                                        <div className='flex gap-1 items-center'>
+                                            <LogOut className="w-4 h-4" />
+                                            <button onClick={handleLogOut}> logOut
+                                            </button>
+                                        </div>
+                                    </div>
+                                </> :
                                 <>
                                     <div className="flex items-center gap-1 hover:text-indigo-600 cursor-pointer">
                                         <LogIn className="w-4 h-4" />
@@ -74,14 +93,31 @@ const Navbar = () => {
                         {
                             user ?
                                 <>
-                                    <button onClick={handleLogOut}> logOut
-                                    </button></> :
-                                <>
-                                    <div className="flex items-center gap-1 hover:text-indigo-600 cursor-pointer">
-                                        <LogIn className="w-4 h-4" />
-                                        <Link to="/Login">Login</Link>
+                                    <div className=" flex items-center gap-4">
+                                        <div className="relative group flex justify-center">
+                                            <img
+                                                src={`${IMAGE_BASE_URL}${user?.Avatar}`}
+                                                alt="avatar"
+                                                className="w-8 h-8 rounded-full cursor-pointer"
+                                            />
+                                            <div className="  bg-white border border-gray-200 rounded-xl shadow-lg scale-95  transition-all duration-200 z-50">
+                                                <h2 className="text-base font-semibold text-gray-900">{user?.FullName}</h2>
+                                                <p className="text-sm text-gray-500">{user?.Email}</p>
+                                            </div>
+                                        </div>
+
+
                                     </div>
-                                </>
+                                    <div className='flex gap-1 items-center'>
+                                        <LogOut className="w-4 h-4" />
+                                        <button onClick={handleLogOut}> logOut
+                                        </button> </div></> :
+                        <>
+                            <div className="flex items-center gap-1 hover:text-indigo-600 cursor-pointer">
+                                <LogIn className="w-4 h-4" />
+                                <Link to="/Login">Login</Link>
+                            </div>
+                        </>
                         }
                     </div>
 
