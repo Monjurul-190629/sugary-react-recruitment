@@ -1,9 +1,27 @@
 import { Menu, X, LogIn, UserPlus, LayoutDashboard, Gift } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../hookes/reduxHooks';
+import { setCredentials } from '../../features/auth/authSlice';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+
+    // get user
+
+    const user = useAppSelector((state) => state.auth.user)
+
+    // LogOut
+
+    const userDispatch = useAppDispatch();
+
+    const handleLogOut = () => {
+        userDispatch(setCredentials({
+            token: null,
+            refreshToken: null,
+            user: null
+        }))
+    }
 
     return (
         <header className="bg-white shadow-sm sticky top-0 z-50 w-full">
@@ -18,15 +36,22 @@ const Navbar = () => {
                 <nav className="hidden md:flex items-center gap-6 text-gray-700 font-medium">
                     <div className="flex items-center gap-1 hover:text-indigo-600 cursor-pointer">
                         <LayoutDashboard className="w-4 h-4" />
-                        <Link to = "/dashboard">Dashboard</Link>
+                        <Link to="/dashboard">Dashboard</Link>
                     </div>
-                    <div className="flex items-center gap-1 hover:text-indigo-600 cursor-pointer">
-                        <LogIn className="w-4 h-4" />
-                        <Link to = "/Login">Login</Link>
-                    </div>
-                    <div className="flex items-center gap-1 hover:text-indigo-600 cursor-pointer">
-                        <UserPlus className="w-4 h-4" />
-                        <span>Register</span>
+
+                    <div>
+                        {
+                            user ?
+                                <>
+                                    <button onClick={handleLogOut}> logOut
+                                    </button></> :
+                                <>
+                                    <div className="flex items-center gap-1 hover:text-indigo-600 cursor-pointer">
+                                        <LogIn className="w-4 h-4" />
+                                        <Link to="/Login">Login</Link>
+                                    </div>
+                                </>
+                        }
                     </div>
                 </nav>
 
@@ -43,17 +68,23 @@ const Navbar = () => {
                 <div className="md:hidden bg-white px-4 pb-4 space-y-3 text-gray-700 font-medium">
                     <div className="flex items-center gap-2 hover:text-indigo-600 cursor-pointer">
                         <LayoutDashboard className="w-4 h-4" />
-                        <Link to = "/dashboard">Dashboard</Link>
+                        <Link to="/dashboard">Dashboard</Link>
                     </div>
-                    <div className="flex items-center gap-2 hover:text-indigo-600 cursor-pointer">
-                        <LogIn className="w-4 h-4" />
-                        <span>Login</span>
-                        <Link to = "/Login">Login</Link>
+                    <div>
+                        {
+                            user ?
+                                <>
+                                    <button onClick={handleLogOut}> logOut
+                                    </button></> :
+                                <>
+                                    <div className="flex items-center gap-1 hover:text-indigo-600 cursor-pointer">
+                                        <LogIn className="w-4 h-4" />
+                                        <Link to="/Login">Login</Link>
+                                    </div>
+                                </>
+                        }
                     </div>
-                    <div className="flex items-center gap-2 hover:text-indigo-600 cursor-pointer">
-                        <UserPlus className="w-4 h-4" />
-                        <span>Register</span>
-                    </div>
+
                 </div>
             )}
         </header>
