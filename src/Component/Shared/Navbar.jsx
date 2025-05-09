@@ -1,5 +1,6 @@
 import { Menu, X, LogIn, UserPlus, LayoutDashboard, Gift } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -21,7 +22,7 @@ const Navbar = () => {
                     </div>
                     <div className="flex items-center gap-1 hover:text-indigo-600 cursor-pointer">
                         <LogIn className="w-4 h-4" />
-                        <span>Login</span>
+                        <Link to = "/Login">Login</Link>
                     </div>
                     <div className="flex items-center gap-1 hover:text-indigo-600 cursor-pointer">
                         <UserPlus className="w-4 h-4" />
@@ -47,6 +48,7 @@ const Navbar = () => {
                     <div className="flex items-center gap-2 hover:text-indigo-600 cursor-pointer">
                         <LogIn className="w-4 h-4" />
                         <span>Login</span>
+                        <Link to = "/Login">Login</Link>
                     </div>
                     <div className="flex items-center gap-2 hover:text-indigo-600 cursor-pointer">
                         <UserPlus className="w-4 h-4" />
