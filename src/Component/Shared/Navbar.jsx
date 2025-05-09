@@ -18,7 +18,7 @@ const Navbar = () => {
                 <nav className="hidden md:flex items-center gap-6 text-gray-700 font-medium">
                     <div className="flex items-center gap-1 hover:text-indigo-600 cursor-pointer">
                         <LayoutDashboard className="w-4 h-4" />
-                        <span>Dashboard</span>
+                        <Link to = "/dashboard">Dashboard</Link>
                     </div>
                     <div className="flex items-center gap-1 hover:text-indigo-600 cursor-pointer">
                         <LogIn className="w-4 h-4" />
@@ -43,7 +43,7 @@ const Navbar = () => {
                 <div className="md:hidden bg-white px-4 pb-4 space-y-3 text-gray-700 font-medium">
                     <div className="flex items-center gap-2 hover:text-indigo-600 cursor-pointer">
                         <LayoutDashboard className="w-4 h-4" />
-                        <span>Dashboard</span>
+                        <Link to = "/dashboard">Dashboard</Link>
                     </div>
                     <div className="flex items-center gap-2 hover:text-indigo-600 cursor-pointer">
                         <LogIn className="w-4 h-4" />
