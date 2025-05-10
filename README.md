@@ -34,15 +34,9 @@ git clone https://github.com/your-username/your-project-name.git
 cd your-project-name
 Install dependencies:
 
-bash
-Copy
-Edit
 npm install
 Start the development server:
 
-bash
-Copy
-Edit
 npm start
 Your app will be available at http://localhost:3000.
 
