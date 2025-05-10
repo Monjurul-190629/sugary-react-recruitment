@@ -54,7 +54,7 @@ const Navbar = () => {
                                 </button>
                             </div>
                         ) : (
-                            <Link to="/Login" className="flex items-center gap-1 hover:text-yellow-300 transition">
+                            <Link to="/" className="flex items-center gap-1 hover:text-yellow-300 transition">
                                 <LogIn className="w-4 h-4" />
                                 Login
                             </Link>
@@ -72,7 +72,7 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {menuOpen && (
-                <div className="md:hidden bg-white px-4 pb-4 space-y-3 text-gray-800 font-medium">
+                <div className="md:hidden bg-gradient-to-r from-indigo-600 to-purple-600 py-6 px-10 space-y-3 text-white font-medium">
                     <Link to="/dashboard" className="flex items-center gap-2 hover:text-indigo-600 transition">
                         <LayoutDashboard className="w-4 h-4" />
                         Dashboard
@@ -97,7 +97,7 @@ const Navbar = () => {
                                 </button>
                             </>
                         ) : (
-                            <Link to="/Login" className="flex items-center gap-1 hover:text-indigo-600 transition">
+                            <Link to="/" className="flex items-center gap-1 hover:text-indigo-600 transition">
                                 <LogIn className="w-4 h-4" />
                                 Login
                             </Link>
