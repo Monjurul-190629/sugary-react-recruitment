@@ -88,7 +88,7 @@ const Navbar = () => {
                                     />
                                     <div>
                                         <h2 className="font-semibold">{user?.FullName}</h2>
-                                        <p className="text-sm text-gray-500">{user?.Email}</p>
+                                        <p className="text-sm text-gray-200">{user?.Email}</p>
                                     </div>
                                 </div>
                                 <button onClick={handleLogOut} className="flex items-center gap-1 hover:text-indigo-600 transition">
