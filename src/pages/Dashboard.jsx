@@ -61,7 +61,7 @@ const Dashboard = () => {
           page.Materials.map((item) => (
             <div
               key={item.Id}
-              className="group relative p-6 bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl shadow-2xl hover:shadow-yellow-400/40 transform hover:scale-[1.02] transition-all duration-500 overflow-hidden"
+              className="group relative p-6  backdrop-blur-2xl border border-white/30 rounded-3xl shadow-2xl hover:shadow-yellow-400/40 transform hover:scale-[1.02] transition-all duration-500 overflow-hidden"
             >
               {/* Decorative Border */}
               <div className="absolute inset-0 rounded-3xl border border-transparent group-hover:border-yellow-400/50 transition duration-500 pointer-events-none" />

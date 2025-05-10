@@ -19,7 +19,7 @@ const Navbar = () => {
     };
 
     return (
-        <header className="bg-gradient-to-r from-indigo-800 to-purple-800 shadow-md sticky top-0 z-50 w-full">
+        <header className="bg-gradient-to-r from-indigo-600 to-purple-600 shadow-md sticky top-0 z-50 w-full">
             <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center text-white">
                 {/* Logo */}
                 <div className="flex items-center gap-2">
